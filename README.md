@@ -2,36 +2,22 @@
 
 ## linkSHU
 
-ManuTus (Manuscript Status) 时刻监视投稿期刊的状态.
+linkSHU 上海大学校园网有线连接客户端.
 
-实现论文状态改变时，及时通过短信或电话通知作者.
+Design By @Holaplace
 
-
-## Table of Contents
-
-   * [ManuTus](#manutus)
-   * [Table of Contents](#table-of-contents)
-   * [Progressing](#rocket-Progressing)
-   * [For Windows](#for-windows)
-      * [Step 1 Installation](#step-1-installation)
-      * [Step 2 Token](#step-2-token)
-   * [For Linux](#for-linux)
-      * [Step 1 Dependency](#step-1-Dependency)
-      * [Step 2 Python 3.7](#step-2-python-37)
-      * [Step 3 Lib](#step-3-Lib)
-      * [Step 4 Configure](#step-4-Configure)
-      * [Q&A](#Q&A)
-   * [Download](#building_construction-Download)
 
 ## :rocket: Progressing
 欢迎对本项目提交“Issues”帮助我完善脚本;
 
-目前支持**Elsevier**和**RSC**的投稿系统, 其它系统等有投稿再update哈...
+目前支持**有线以太网**连接, WIFI连接方式正在开发，修复bug中...
 
-## :pencil: For Windows (Win 10)
+## :pencil: For Windows
+% How to Use
 
-### Step 1 Installation
-% Python 3.5 以上
+### Step 1
+
+% 免安装，下载release中.exe文件，保存在桌面即可
 % 安装必要库, 包括: pyppeteer, twilio, baidu-aip, *etc*.
 % 参照 "Download" 配置 Chromium
 
