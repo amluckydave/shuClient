@@ -13,151 +13,41 @@ Design By @[Holaplace](https://github.com/Holaplace)
 目前支持**有线以太网**连接, WIFI连接方式正在开发，修复bug中...
 
 ## :pencil: For Windows
-#### How to Use
+### How to Use
 
 ### Step 1
 
-% 免安装，下载release中.exe文件，保存在桌面即可
-% 安装必要库, 包括: pyppeteer, twilio, baidu-aip, *etc*.
-% 参照 "Download" 配置 Chromium
+% 免安装，下载release中.exe文件，保存在桌面即可.
 
-### Step 2 Token
-% 使用前提: 你已知晓如何申请[百度AI识别](https://login.bce.baidu.com/)和[Twilio](https://www.twilio.com/), 相关配置请Google.
+### Step 2
 
-% 调整程序中的网址和账号即可.
+% 双击打开文件，输入 用户名 和 密码 即可.
 
-## :pushpin: For Linux (Centos 7)
+% Note: 根据个人需要是否 记住密码 和自动登录.
 
-### Step 1 Dependency
+### Step 3
 
-% 依赖库:
-```
-sudo yum install pango.x86_64 libXcomposite.x86_64 libXcursor.x86_64 libXdamage.x86_64 libXext.x86_64 libXi.x86_64 libXtst.x86_64 cups-libs.x86_64 libXScrnSaver.x86_64 libXrandr.x86_64 GConf2.x86_64 alsa-lib.x86_64 atk.x86_64 gtk3.x86_64 nss.x86_64 -y
-```
-% 字体
-```
-sudo yum install ipa-gothic-fonts xorg-x11-fonts-100dpi xorg-x11-fonts-75dpi xorg-x11-utils xorg-x11-fonts-cyrillic xorg-x11-fonts-Type1 xorg-x11-fonts-misc -y
-```
-% 去沙箱
-```
-await launch ("--no-sandbox")
-```
+% 开机自动开启linkSHU.exe: 下载release中脚本 linkSHU.bat.
 
-### Step 2 Python 3.7
+% 保存至桌面，双击打开即可，只至该脚本自动退出
 
-% Install yum-utils
-```
-sudo yum install yum-utils
-```
-% Install yum-builddep
-```
-sudo yum-builddep python
-```
-% Download Python 3.7
-```
-sudo yum install wget
-wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
-```
-% Compile Python 3.7
-```
-tar xf Python-3.7.0.tgz
-cd Python-3.7.0
-./configure
-make && make install
-```
-% Update pip3
-```
-pip3 install --upgrade pip
-```
-### Step 3 Lib
-% Install Lib
-```
-pip3 install pyppeteer
-pip3 install twilio
-pip3 install baidu-aip
-```
-% Correct connection.py
-```
-文件位置: /usr/local/lib/python3.7/site-packages/pyppeteer/connection.py
-修改参考: https://github.com/miyakogi/pyppeteer/pull/160/files
+## :pushpin: Note
 
-修改内容: 44行
-	原: self._url, max_size=None, loop=self._loop)
-	后: self._url, max_size=None, loop=self._loop, ping_interval=None, ping_timeout=None)
-```
-### Step 4 Configure
-% 按照 **“附件下载”** 部分执行 (GFW的Linux可忽略)
-% 使用 SFTP 软件挂载上传至 /home/
-% 建立screen 多窗口控制, 以防退出SSH时, 任务中止.
+### 生成配置文件相关
 
-```
-screen -S name 建立name任务
-screen -x name 进入name任务
-screen -ls     浏览当前所有任务
-crtl + A + D   返回主窗口
+% 登录之后，文件会自动生成 config.ini 和 catch_data.json 两个文件.
 
-crontab -l     浏览当前所有定时任务
-crontab -e     建立定时任务
+% config.ini 保存 用户名、密码、记住密码、自动登录
 
-*/15 * * * * python /home/manuOCR.py
-*/17 * * * * python /home/RSC_VPS.py
-```
+% catch_data.json 保存requests.post需要的 data文件
 
+% 上述文件均保存在 C:\Windows\linkSHU
 
-**Note:** 
+### 相关参考
 
-Elsevier--> manuOCR.py
+% 网络认证相关: @hwenwur | RuijieAutoConnect
 
-RSC --> RSC_VPS.py
-
-使用前提: 你已知晓如何申请[百度AI识别](https://login.bce.baidu.com/)和[Twilio](https://www.twilio.com/), 相关配置请Google.
+% 图标来自: @ChunWai振玮 | iconfont.com
 
 
 
-### Q&A
-1. Python环境设置, 出现在./configure末. 提示代码: -zlib not available (zipimport.ZipImportError: can‘t decompress data; zlib not available)
-
-解决办法: 安装依赖后, 重新 make && make install
-```
-sudo yum install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev
-```
-2. 安装完 Python3 后, yum无法使用
-
-解决方法: 修改yum的相关依赖,下述文件第一行改为 /usr/bin/python3.7
-```
-vi /usr/libexec/urlgrabber-ext-down
-```
-
-
-## :building_construction: Download
-如果在GFW内，首次执行pyppeteer时，无法完成下载Chromium. 故提供下载所需Chromium文件, 并将其移动到下解压 (之后可删除压缩包).
-
-**LInux (CentOS 7) 文件, /root/.local/share/...**
-
-链接: https://pan.baidu.com/s/14yyKZfBsR_fPKGX5MLowVQ 提取码: qdap
-
-**Windows 10 文件, C:\Users\你的用户名\AppData\Local\pyppeteer\pyppeteer\\local-chromium\575458\\...**
-
-*<u>downloadLink 1</u>*
-
-https://storage.googleapis.com/chromium-browser-snapshots/Win_x64/575458/chrome-win32.zip
-
-*<u>downloadLink 2</u>*
-
-链接: https://pan.baidu.com/s/1QagNo8EE5IO0apYPJn80JQ 提取码: ek1n
-
-
-
-**Note:** 如果不存放在指定文件夹内, 只要在launch里配置一下Chromium的路径即可 (注意Linux和Windows路径斜线不同). 示例: 
-
-*<u>Win</u>*
-
-```
-'executablePath': 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe', 
-```
-
-*<u>Linux</u>* 
-
-```
-'executablePath': '/root/home/chrome.exe',
-```
