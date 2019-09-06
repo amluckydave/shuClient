@@ -4,7 +4,7 @@
 
 linkSHU 上海大学校园网有线连接客户端.
 
-Design By @Holaplace
+Design By @[Holaplace](https://github.com/Holaplace)
 
 
 ## :rocket: Progressing
@@ -13,7 +13,7 @@ Design By @Holaplace
 目前支持**有线以太网**连接, WIFI连接方式正在开发，修复bug中...
 
 ## :pencil: For Windows
-% How to Use
+#### How to Use
 
 ### Step 1
 
