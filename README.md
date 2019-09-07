@@ -43,6 +43,7 @@ Design By @[Holaplace](https://github.com/Holaplace)
 % catch_data.json 保存requests.post需要的 data文件
 
 % 上述文件
+
 --> 有线端配置文件 保存在 C:\Users\你的用户名\linkSHU
 
 --> wifi端配置文件 保存在 C:\Users\你的用户名\linkSHUwifi
