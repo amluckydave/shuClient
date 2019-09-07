@@ -28,6 +28,7 @@ Design By @[Holaplace](https://github.com/Holaplace)
 ### Step 3
 
 % 开机自动开启linkSHU.exe: 下载release中脚本 linkSHU.bat.
+--> wifi端下载相应脚本即可，操作同上
 
 % 保存至桌面，双击打开即可，只至该脚本自动退出
 
@@ -41,7 +42,9 @@ Design By @[Holaplace](https://github.com/Holaplace)
 
 % catch_data.json 保存requests.post需要的 data文件
 
-% 上述文件均保存在 C:\Users\你的用户名\AppData\Local\VirtualStore\Windows\linkSHU
+% 上述文件
+--> 有线端配置文件 保存在 C:\Users\你的用户名\linkSHU
+--> wifi端配置文件 保存在 C:\Users\你的用户名\linkSHUwifi
 
 ### 相关参考
 
