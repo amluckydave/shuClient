@@ -49,4 +49,4 @@ Design By @[Holaplace](https://github.com/Holaplace)
 
 % 图标来自: @ChunWai振玮 | iconfont.com
 
-![https://raw.githubusercontent.com/Holaplace/shuClient/master/jiemian.jpg?raw=true](https://raw.githubusercontent.com/Holaplace/shuClient/master/jiemian.jpg?raw=true)
+![https://raw.githubusercontent.com/Holaplace/shuClient/master/frontPage.jpg?raw=true](https://raw.githubusercontent.com/Holaplace/shuClient/master/frontPage.jpg?raw=true)
