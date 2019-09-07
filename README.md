@@ -41,7 +41,7 @@ Design By @[Holaplace](https://github.com/Holaplace)
 
 % catch_data.json 保存requests.post需要的 data文件
 
-% 上述文件均保存在 C:\Windows\linkSHU
+% 上述文件均保存在 C:\Users\你的用户名\AppData\Local\VirtualStore\Windows\linkSHU
 
 ### 相关参考
 
