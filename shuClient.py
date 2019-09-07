@@ -14,9 +14,13 @@ from linkSHUPath import shuPath
 linkpath = shuPath()
 
 
-tmp = open(linkpath + r'\timg.png', 'wb')
-tmp.write(base64.b64decode(timg))
-tmp.close()
+sss = os.path.exists(linkpath + r'\timg.png')
+if not sss:
+    tmp = open(linkpath + r'\timg.png', 'wb')
+    tmp.write(base64.b64decode(timg))
+    tmp.close()
+else:
+    pass
 
 
 class Ui_MainWindow(object):

@@ -19,9 +19,13 @@ from linkSHUPath import shuPath
 
 linkpath = shuPath()
 
-tmp = open(linkpath + r'\logo.png', 'wb')
-tmp.write(base64.b64decode(logo))
-tmp.close()
+sss = os.path.exists(linkpath + r'\logo.png')
+if not sss:
+    tmp = open(linkpath + r'\logo.png', 'wb')
+    tmp.write(base64.b64decode(logo))
+    tmp.close()
+else:
+    pass
 
 
 class shuUi(QMainWindow, Ui_MainWindow):
