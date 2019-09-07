@@ -44,6 +44,7 @@ Design By @[Holaplace](https://github.com/Holaplace)
 
 % 上述文件
 --> 有线端配置文件 保存在 C:\Users\你的用户名\linkSHU
+
 --> wifi端配置文件 保存在 C:\Users\你的用户名\linkSHUwifi
 
 ### 相关参考
