@@ -1,12 +1,12 @@
-from os import getenv, makedirs
+from os import path, makedirs
 
 
 def shuPath():
-    rootPath = getenv('SYSTEMROOT')
+    rootPath = path.expanduser('~')
     try:
-        makedirs(rootPath + r'\linkSHU')
-        addrSHU = rootPath + r'\linkSHU'
+        makedirs(rootPath + r'\linkSHUwifi')
+        addrSHU = rootPath + r'\linkSHUwifi'
     except:
-        addrSHU = rootPath + r'\linkSHU'
+        addrSHU = rootPath + r'\linkSHUwifi'
 
     return addrSHU

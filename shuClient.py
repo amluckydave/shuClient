@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-import sys, os
+
+import sys, \
+    os
 if hasattr(sys, 'frozen'):
     os.environ['PATH'] = sys._MEIPASS + ";" + os.environ['PATH']
 
@@ -13,10 +15,13 @@ from linkSHUPath import shuPath
 
 linkpath = shuPath()
 
-
-tmp = open(linkpath + r'\timg.png', 'wb')
-tmp.write(base64.b64decode(timg))
-tmp.close()
+sss = os.path.exists(linkpath + r'\timg.png')
+if not sss:
+    tmp = open(linkpath + r'\timg.png', 'wb')
+    tmp.write(base64.b64decode(timg))
+    tmp.close()
+else:
+    pass
 
 
 class Ui_MainWindow(object):
@@ -101,12 +106,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2 = QHBoxLayout(self.horizontalLayoutWidget_3)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.wireButton = QPushButton(self.horizontalLayoutWidget_3)
+        self.wifiButton = QPushButton(self.horizontalLayoutWidget_3)
         font = QFont()
         font.setFamily("微软雅黑")
-        self.wireButton.setFont(font)
-        self.wireButton.setObjectName("wireButton")
-        self.horizontalLayout_2.addWidget(self.wireButton)
+        self.wifiButton.setFont(font)
+        self.wifiButton.setObjectName("wifiButton")
+        self.horizontalLayout_2.addWidget(self.wifiButton)
         self.groupBox_2 = QGroupBox(self.centralwidget)
         self.groupBox_2.setGeometry(QRect(240, 70, 141, 171))
         self.groupBox_2.setTitle("")
@@ -198,8 +203,9 @@ class Ui_MainWindow(object):
         self.passwd.setText(_translate("MainWindow", "密  码"))
         self.passwdCB.setText(_translate("MainWindow", "记住密码"))
         self.auto_login.setText(_translate("MainWindow", "自动登录"))
-        self.wireButton.setText(_translate("MainWindow", "有线连接"))
+        self.wifiButton.setText(_translate("MainWindow", "WIFI连接"))
         self.status_lable.setText(_translate("MainWindow", "连接状态"))
         self.logout.setText(_translate("MainWindow", "下线"))
         self.updateLabel.setText(_translate("MainWindow", "关于 & 更新"))
         self.text.setText(_translate("MainWindow", "校 园 网"))
+
