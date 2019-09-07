@@ -1,6 +1,6 @@
 ![https://raw.githubusercontent.com/Holaplace/shuClient/master/linkSHU.jpg?raw=true](https://raw.githubusercontent.com/Holaplace/shuClient/master/linkSHU.jpg?raw=true)
 
-## linkSHU
+## <p align="center">linkSHU</p>
 
 linkSHU 上海大学校园网有线连接客户端.
 
