@@ -5,13 +5,13 @@
 <p align="center">
       <a href="https://github.com/Holaplace/shuClient"><img src="https://img.shields.io/badge/status-updating-brightgreen.svg"></a>
 
-
+<br />
 </p>
-##
+
 linkSHU 上海大学校园网有线连接客户端.
 
 Design By @[Holaplace](https://github.com/Holaplace)
-
+<br />
 
 ## :rocket: Progressing
 欢迎对本项目提交“Issues”帮助我完善脚本;
