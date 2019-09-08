@@ -8,18 +8,25 @@ nameHi = netHi()
 
 
 def wifi_connect_status(user, passwd):
-    if not psutil.net_if_stats()[nameHi].isup:  # wifi未连接到shuforall或未打开WiFi开关
+    if not psutil.net_if_stats()[nameHi].isup:  # wifi未连接到wifi或未打开WiFi开关
         try:
             s = connect_wifi(user, passwd)
         except Exception as e:
             s = e
         return s
 
-    else:  # wifi已连接到shuforall
-        s0 = "Shu(ForAll) 连接成功\n"
-        shu = shuConnect(user, passwd)
-        s = s0 + shu.start_connect()
-        return s
+    else:  # wifi已连接到internet
+        try:  # wifi已连接到 Shu(ForAll)
+            s0 = "Shu(ForAll) 连接成功\n"
+            shu = shuConnect(user, passwd)
+            s = s0 + shu.start_connect()
+            return s
+        except:  # wifi未连接到 Shu(ForAll)，重连...
+            try:
+                s = connect_wifi(user, passwd)
+            except Exception as e:
+                s = e
+            return s
 
 
 def connect_wifi(user, passwd):
