@@ -1,4 +1,4 @@
-from pywifi import PyWiFi, Profile, const
+from pywifi import PyWiFi, Profile
 from time import sleep
 from ruijie import shuConnect
 import psutil
