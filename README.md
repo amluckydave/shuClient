@@ -41,6 +41,7 @@ Design By @[Holaplace](https://github.com/Holaplace)
 ### Step 3
 
 % 开机自动开启linkSHU.exe: 下载release中脚本 linkSHU.bat.
+
 --> wifi端下载相应脚本即可，操作同上
 
 % 保存至桌面，双击打开即可，只至该脚本自动退出
