@@ -43,6 +43,8 @@ Design By @[Holaplace](https://github.com/Holaplace)
 
 % 上述文件均保存在 C:\Users\你的用户名\AppData\Local\VirtualStore\Windows\linkSHU
 
+% 修改网卡地址，参考 https://blog.csdn.net/xueqiang03/article/details/80741734
+
 ### 相关参考
 
 % 网络认证相关: @hwenwur | RuijieAutoConnect
