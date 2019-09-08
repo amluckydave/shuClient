@@ -1,6 +1,6 @@
 ![https://raw.githubusercontent.com/Holaplace/shuClient/master/linkSHU.jpg?raw=true](https://raw.githubusercontent.com/Holaplace/shuClient/master/linkSHU.jpg?raw=true)
 
-## <p align="center">linkSHU</p>
+# <p align="center">linkSHU</p>
 
 <p align="center">
       <a href="https://github.com/Holaplace/shuClient"><img src="https://img.shields.io/badge/status-updating-brightgreen.svg"></a>
