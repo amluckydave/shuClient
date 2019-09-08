@@ -8,6 +8,7 @@ from linkSHUPath import shuPath
 
 linkpath = shuPath()
 
+
 class shuConnect:
     def __init__(self, user=0, passwd='shu'):
         self.user = user
