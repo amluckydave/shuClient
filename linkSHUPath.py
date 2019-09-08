@@ -4,9 +4,9 @@ from os import path, makedirs
 def shuPath():
     rootPath = path.expanduser('~')
     try:
-        makedirs(rootPath + r'\linkSHUwifi')
-        addrSHU = rootPath + r'\linkSHUwifi'
+        makedirs(rootPath + r'\linkSHU')
+        addrSHU = rootPath + r'\linkSHU'
     except:
-        addrSHU = rootPath + r'\linkSHUwifi'
+        addrSHU = rootPath + r'\linkSHU'
 
     return addrSHU
