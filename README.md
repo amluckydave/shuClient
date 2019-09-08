@@ -23,7 +23,7 @@ Design By @[Holaplace](https://github.com/Holaplace)
 ## :rocket: Progressing
 欢迎对本项目提交“Issues”帮助我完善脚本;
 
-目前支持**有线以太网**及**WIFI**连接, 两种连接方式整合正在开发，修复bug中...
+目前支持 **有线以太网** 及 **WIFI** 连接, 两种连接方式整合正在开发，修复bug中...
 
 ## :pencil: For Windows
 ### How to Use
