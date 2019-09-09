@@ -25,6 +25,8 @@ Design By @[Holaplace](https://github.com/Holaplace)
 
 目前支持 **有线无线alpha版**、**有线以太网** 及 **WIFI** 连接.
 
+国内下载地址: https://www.lanzous.com/i63hr3g
+
 ## :pencil: For Windows
 ### How to Use
 
