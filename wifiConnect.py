@@ -10,19 +10,23 @@ nameHiwifi = netHiWifi()
 
 
 def wifi_connect_status(user, passwd):
-    if not net_if_stats()[nameHiwifi].isup:  # wifi未连接到Shu(ForAll) 或未打开WiFi开关
-        s = connect_wifi(user, passwd)
-        return s
-
-    else:  # wifi已连接到internet
-        try:  # wifi已连接到 Shu(ForAll)
-            s0 = "Shu(ForAll) 连接成功\n"
-            shu = shuConnect(user, passwd)
-            s = s0 + shu.start_connect()
-            return s
-        except:  # wifi未连接到 Shu(ForAll)，重连...
+    try:
+        if not net_if_stats()[nameHiwifi].isup:  # wifi未连接到Shu(ForAll) 或未打开WiFi开关
             s = connect_wifi(user, passwd)
             return s
+
+        else:  # wifi已连接到internet
+            try:  # wifi已连接到 Shu(ForAll)
+                s0 = "Shu(ForAll) 连接成功\n"
+                shu = shuConnect(user, passwd)
+                s = s0 + shu.start_connect()
+                return s
+            except:  # wifi未连接到 Shu(ForAll)，重连...
+                s = connect_wifi(user, passwd)
+                return s
+    except Exception as e:
+        s = '未检测到无线网卡，或其他未知原因: ' + str(e)
+        return s
 
 
 def connect_wifi(user, passwd):

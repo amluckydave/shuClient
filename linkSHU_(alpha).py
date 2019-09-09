@@ -45,6 +45,9 @@ class shuUi(QMainWindow, Ui_MainWindow):
         self.updateLabel.setText("<A href='https://github.com/Holaplace/shuClient'>关于 & 更新</a>")
         self.updateLabel.setOpenExternalLinks(True)
 
+        # settings = QSettings(linkpath + r"\config.ini", QSettings.IniFormat)
+        # settings.setValue("loginStyle", int(0))
+
         self.init_login_info()
         self.login.clicked.connect(self.on_pushButton_enter_clicked)
 
@@ -70,7 +73,7 @@ class shuUi(QMainWindow, Ui_MainWindow):
         the_password = settings.value("password")
         the_remeberpassword = settings.value("remeberpassword")
         the_autologin = settings.value("autologin")
-        the_loginStyle = int(settings.value("loginStyle"))
+        the_loginStyle = settings.value("loginStyle")
 
         self.input_user.setText(the_account)
         # 记住密码判断
@@ -83,8 +86,12 @@ class shuUi(QMainWindow, Ui_MainWindow):
             self.auto_login.setChecked(True)
 
             # 登录方式判断
-            if the_autologin is not int(0):
-                self.comboBox.setCurrentIndex(the_loginStyle)
+            if the_loginStyle is None:
+                s = '首次登录，请注意选择连接方式'
+                self.status.setText(s)
+
+            else:
+                self.comboBox.setCurrentIndex(int(the_loginStyle))
 
     # 自动登录
     def goto_autologin(self):
@@ -98,9 +105,13 @@ class shuUi(QMainWindow, Ui_MainWindow):
 
         self.auto_login.stateChanged.connect(self.cancel_autologin)
 
-        # 保存登录信息
-        self.save_login_info()
-        self.connectStyle()
+        tag = self.connectStyle()
+        if tag:  # 如果点击login按钮之前选择的连接方式未空
+            s = '未选择连接方式，无法登录'
+            self.status.setText(s)
+        else:
+            # 保存登录信息
+            self.save_login_info()
 
     def cancel_autologin(self):
         if not self.auto_login.isChecked():
@@ -111,8 +122,12 @@ class shuUi(QMainWindow, Ui_MainWindow):
         try:
             if self.comboBox.currentIndex() is int(1):
                 self.wireConnect()
+                return
             elif self.comboBox.currentIndex() is int(2):
                 self.wifiConnect()
+                return
+            elif self.comboBox.currentIndex() is int(0):
+                return True
         except Exception as e:
             self.status.setText(e)
 
