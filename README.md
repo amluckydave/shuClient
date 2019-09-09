@@ -45,6 +45,7 @@ Design By @[Holaplace](https://github.com/Holaplace)
 [1] 下载release中对应脚本文件(.bat)
 
 [2] 保存至桌面，双击打开即可，只至该脚本自动退出
+
 [3] 删除开机自启动，点击[下载脚本](https://github-production-release-asset-2e65be.s3.amazonaws.com/206237670/ea9bbd00-d320-11e9-8aaa-a7560a506c02?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20190909%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190909T085057Z&X-Amz-Expires=300&X-Amz-Signature=31a15b3904e7cf86f7b043e17e44363e38acf4b15e61b28fe6ce2ded18c7c121&X-Amz-SignedHeaders=host&actor_id=45121260&response-content-disposition=attachment%3B%20filename%3DremoveInk.bat&response-content-type=application%2Foctet-stream)，双击打开后，删除目标快捷方式即可(.ink)
 
 ## :pushpin: Note
