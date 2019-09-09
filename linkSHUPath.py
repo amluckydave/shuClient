@@ -1,8 +1,8 @@
-from os import getenv, makedirs
+from os import path, makedirs
 
 
 def shuPath():
-    rootPath = getenv('SYSTEMROOT')
+    rootPath = path.expanduser('~')
     try:
         makedirs(rootPath + r'\linkSHU')
         addrSHU = rootPath + r'\linkSHU'

@@ -1,0 +1,11 @@
+# pip install -r requirements.txt
+# pyinstaller -F -w -i logo.ico linkSHU_(alpha).py
+
+requests
+pyqt5
+pywifi
+pyinstaller
+comtypes
+IPy
+psutil
+PyQt5-stubs

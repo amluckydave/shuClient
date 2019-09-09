@@ -1,9 +1,16 @@
 from psutil import net_if_addrs
 
 
-def netHi():
-    s = net_if_addrs()
-    for key in s.keys():
+def netHiWifi():
+    for key in net_if_addrs().keys():
+        if 'WLAN' in key:
+            s = key
+            return s
+
+
+def netHiWire():
+    for key in net_if_addrs().keys():
         if '以太' in key:
             s = key
-    return s
+            return s
+

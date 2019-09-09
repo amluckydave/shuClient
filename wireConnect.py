@@ -1,15 +1,12 @@
 from ruijie import shuConnect
-from time import strftime
 from psutil import net_if_addrs, net_if_stats
 from IPy import IP
 from eduIP import eduIPlist
-from netName import netHi
+from netName import netHiWire
 
 
 def wire_connect_status(user, passwd):
-    t = strftime("%Y-%m-%d %H:%M:%S")
-
-    nameHi = netHi()
+    nameHi = netHiWire()
 
     if net_if_stats()[nameHi].isup:
 
@@ -26,5 +23,5 @@ def wire_connect_status(user, passwd):
             except:
                 pass
     else:
-        s = '请检查网线是否插入 或 是否已连接到 SHU有线\n' + t
+        s = '请检查网线是否插入 或 是否已连接到 SHU有线\n'
         return s
