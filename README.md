@@ -1,4 +1,4 @@
-![https://raw.githubusercontent.com/Holaplace/shuClient/master/linkSHU.jpg?raw=true](https://raw.githubusercontent.com/Holaplace/shuClient/master/linkSHU.jpg?raw=true)
+![https://github.com/Holaplace/shuClient?raw=true](https://raw.githubusercontent.com/Holaplace/shuClient/master/linkSHU.jpg?raw=true)
 
 # <p align="center">linkSHU</p>
 
@@ -68,4 +68,4 @@ Design By @[Holaplace](https://github.com/Holaplace)
 
 % 图标来自: @ChunWai振玮 | iconfont.com
 
-![https://raw.githubusercontent.com/Holaplace/shuClient/master/frontPage.jpg?raw=true](https://raw.githubusercontent.com/Holaplace/shuClient/master/frontPage.jpg?raw=true)
+![https://github.com/Holaplace/shuClient?raw=true](https://raw.githubusercontent.com/Holaplace/shuClient/master/alpha%20version.jpg?raw=true)
