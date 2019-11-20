@@ -2,6 +2,7 @@
 
 import sys, \
     os
+
 if hasattr(sys, 'frozen'):
     os.environ['PATH'] = sys._MEIPASS + ";" + os.environ['PATH']
 
@@ -16,7 +17,6 @@ from PyQt5.QtGui import QIcon
 from logo_png import img as logo
 from base64 import b64decode
 from linkSHUPath import shuPath
-
 
 linkpath = shuPath()
 
@@ -66,7 +66,7 @@ class shuUi(QMainWindow, Ui_MainWindow):
     # 初始化登录信息
     def init_login_info(self):
         settings = QSettings(linkpath + r"\config.ini", QSettings.IniFormat)
-        the_account =settings.value("account")
+        the_account = settings.value("account")
         the_password = settings.value("password")
         the_remeberpassword = settings.value("remeberpassword")
         the_autologin = settings.value("autologin")
@@ -93,7 +93,7 @@ class shuUi(QMainWindow, Ui_MainWindow):
     # 自动登录
     def goto_autologin(self):
         if self.auto_login.isChecked() is True:
-           self.on_pushButton_enter_clicked()
+            self.on_pushButton_enter_clicked()
 
     def on_pushButton_enter_clicked(self):
         # 账号密码NULL判断

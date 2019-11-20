@@ -32,7 +32,7 @@ class shuConnect:
                     "password": self.passwd,
                     "passwordEncrypt": "false",
                     "queryString": query_string,
-                    "service": "",
+                    "service": "shu",
                     "operatorPwd": "",
                     "operatorUserId": "",
                     "validcode": ""}
