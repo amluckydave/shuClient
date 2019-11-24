@@ -34,7 +34,7 @@ class shuUi(QMainWindow, Ui_MainWindow):
         super(shuUi, self).__init__(parent)
         self.setupUi(self)
 
-        self.setWindowTitle('linkSHU (alpha)')
+        self.setWindowTitle('linkSHU')
         self.setWindowIcon(QIcon(linkpath + r'\logo.png'))
 
         self.setFixedSize(self.width(), self.height())

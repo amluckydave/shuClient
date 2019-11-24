@@ -3,6 +3,7 @@
 from requests import get, post
 from json import dump, load
 from linkSHUPath import shuPath
+import socket
 
 
 linkpath = shuPath()
@@ -13,12 +14,27 @@ class shuConnect:
         self.user = user
         self.passwd = passwd
 
-    def check_connect(self):
-        r = get("http://10.10.9.9:8080")
-        if "success.jsp" in r.url:
+    def precheck_connect(self):
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(3)
+            sock.connect(("10.10.9.9", 8080))
             return True
-        else:
+        except socket.error as e:
             return False
+        finally:
+            sock.close()
+
+    def check_connect(self):
+        pre_status = self.precheck_connect()
+        if pre_status:
+            r = get("http://10.10.9.9:8080")
+            if "success.jsp" in r.url:
+                return 1
+            else:
+                return 2
+        else:
+            return 3
 
     def catch_data(self):
         try:
@@ -57,16 +73,18 @@ class shuConnect:
 
     def start_connect(self):
         status = self.check_connect()
-        if status:
+        if status == 1:
             s = '已认证 & 用户已在线 \n'
 
-        else:
+        elif status == 2:
             r, msg = self.connect()
             if r:
                 s = '认证成功 & 用户上线\n'
 
             else:
                 s = '认证失败\n' + msg
+        else:
+            s = '暂时无法认证\n'
 
         return s
 
