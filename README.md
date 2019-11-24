@@ -17,7 +17,7 @@
 
 linkSHU 上海大学校园网有线连接客户端.
 
-Design By @[Holaplace](https://github.com/Holaplace)
+Designed By @[Holaplace](https://github.com/Holaplace)
 <br />
 
 ## :rocket: Progressing
@@ -25,7 +25,7 @@ Design By @[Holaplace](https://github.com/Holaplace)
 
 目前支持 **有线无线alpha版**、**有线以太网** 及 **WIFI** 连接.
 
-国内下载地址: https://www.lanzous.com/i63hr3g
+国内下载地址: https://www.lanzous.com/i7gog9c
 
 ## :pencil: For Windows
 ### How to Use
