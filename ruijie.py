@@ -11,9 +11,10 @@ linkpath = shuPath()
 
 
 class shuConnect:
-    def __init__(self, user=0, passwd='shu'):
+    def __init__(self, user=0, passwd='shu', chose=1):
         self.user = user
         self.passwd = passwd
+        self.chose = chose
 
     def precheck_connect(self):
         try:
@@ -73,7 +74,9 @@ class shuConnect:
             return False, resp["message"]
 
     def start_connect(self):
-        sleep(1)  # 不延时，precheck 中 sock.connect 反应不过来
+        if self.chose != 1:
+            sleep(1)  # 不延时，precheck 中 sock.connect 反应不过来
+
         status = self.check_connect()
         if status == 1:
             s = '已认证 & 用户已在线 \n'

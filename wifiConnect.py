@@ -87,7 +87,7 @@ class wifiCon(QThread):
             sleep(1)  # 不延时，wifi反应不过来
 
             s0 = "Shu(ForAll) 连接成功\n"
-            shu = shuConnect(self.user, self.passwd)
+            shu = shuConnect(self.user, self.passwd, chose=2)
             s = s0 + shu.start_connect()
 
         except:
