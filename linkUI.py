@@ -31,8 +31,10 @@ class Ui_MainWindow(object):
         font = QFont()
         font.setPointSize(11)
         MainWindow.setFont(font)
+
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
         self.groupBox = QGroupBox(self.centralwidget)
         self.groupBox.setGeometry(QRect(10, 70, 231, 131))
         self.groupBox.setTitle("")

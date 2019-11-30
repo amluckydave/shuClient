@@ -4,6 +4,7 @@ from requests import get, post
 from json import dump, load
 from linkSHUPath import shuPath
 import socket
+from time import sleep
 
 
 linkpath = shuPath()
@@ -20,7 +21,7 @@ class shuConnect:
             sock.settimeout(3)
             sock.connect(("10.10.9.9", 8080))
             return True
-        except socket.error as e:
+        except socket.error:
             return False
         finally:
             sock.close()
@@ -72,6 +73,7 @@ class shuConnect:
             return False, resp["message"]
 
     def start_connect(self):
+        sleep(1)  # 不延时，precheck 中 sock.connect 反应不过来
         status = self.check_connect()
         if status == 1:
             s = '已认证 & 用户已在线 \n'

@@ -3,37 +3,75 @@ from time import sleep
 from ruijie import shuConnect
 from psutil import net_if_stats
 from netName import netHiWifi, netHiWire
-
+from wireConnect import wire_connect_status
+from PyQt5.QtCore import QThread, pyqtSignal
 
 nameHiwire = netHiWire()
 nameHiwifi = netHiWifi()
 
 
-def wifi_connect_status(user, passwd):
-    try:
-        if not net_if_stats()[nameHiwifi].isup:  # wifi未连接到Shu(ForAll) 或未打开WiFi开关
-            s = connect_wifi(user, passwd)
-            return s
+class wifiSHU():
+    s1 = '无线连接前，请先断开网线\n'
+    s2 = "无线网卡未打开，请打开 WLAN 开关\n"
+    s3 = '未检测到无线网卡，或其他未知原因\n'
 
-        else:  # wifi已连接到internet
-            try:  # wifi已连接到 Shu(ForAll)
-                s0 = "Shu(ForAll) 连接成功\n"
-                shu = shuConnect(user, passwd)
-                s = s0 + shu.start_connect()
-                return s
-            except:  # wifi未连接到 Shu(ForAll)，重连...
-                s = connect_wifi(user, passwd)
-                return s
-    except Exception as e:
-        s = '未检测到无线网卡，或其他未知原因: ' + str(e)
-        return s
+    def __init__(self, user, passwd):
+        self.user = user
+        self.passwd = passwd
+
+    def wifi_connect_status(self):
+        checkTag = wire_connect_status()
+
+        if checkTag is None:
+            try:
+                if not net_if_stats()[nameHiwifi].isup:  # wifi未连接到 internet 或未打开WiFi开关
+                    # s = "无线网卡未打开，请打开 WLAN 开关\n"
+                    return 2
+
+                else:  # wifi已连接到 Shu(ForAll)
+                    return 4
+            except:
+                # s = '未检测到无线网卡，或其他未知原因: ' + str(e)
+                return 3
+
+        else:
+            # s = '无线连接前，请先断开网线\n'
+            return 1
+
+    def wifi_connect(self):
+        wifiTag = self.wifi_connect_status()
+        if wifiTag == 1:
+            return self.s1
+
+        elif wifiTag == 2 or 4:
+            try:
+                shu = shuConnect(self.user, self.passwd)
+                msg = shu.start_connect()
+                if '暂时无法认证' in msg:
+
+                    return
+
+                else:  # wifi已连接到 Shu(ForAll)
+                    s0 = "Shu(ForAll) 连接成功\n"
+                    s = s0 + msg
+                    return s
+            except:
+                return self.s3
+
+        elif wifiTag == 3:
+            return self.s3
 
 
-def connect_wifi(user, passwd):
-    if net_if_stats()[nameHiwire].isup:
-        s = '无线连接前，请先断开网线\n'
-        return s
-    else:
+class wifiCon(QThread):
+    signalCon = pyqtSignal(str)
+
+    def __init__(self, user, passwd, sender):
+        super().__init__()
+        self.user = user
+        self.passwd = passwd
+        self.signalCon.connect(sender.callback)
+
+    def run(self):
         try:
             wifi = PyWiFi()  # 创建一个wifi对象
             iface = wifi.interfaces()[0]  # 取第一个无限网卡
@@ -46,13 +84,13 @@ def connect_wifi(user, passwd):
             tmp_profile = iface.add_network_profile(profile)  # 加载配置文件
 
             iface.connect(tmp_profile)  # 连接
-            sleep(0.5)  # 不延时，wifi反应不过来
+            sleep(1)  # 不延时，wifi反应不过来
 
             s0 = "Shu(ForAll) 连接成功\n"
-            shu = shuConnect(user, passwd)
+            shu = shuConnect(self.user, self.passwd)
             s = s0 + shu.start_connect()
 
         except:
-            s = "无线网卡未打开，请打开 WLAN 开关\n"
+            s = 'macError'
 
-    return s
+        self.signalCon.emit(s)

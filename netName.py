@@ -9,8 +9,10 @@ def netHiWifi():
 
 
 def netHiWire():
+    s = []
     for key in net_if_addrs().keys():
         if '以太' in key:
-            s = key
-            return s
+            s.append(key)
+
+    return s
 
