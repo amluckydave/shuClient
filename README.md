@@ -17,7 +17,7 @@
 
 linkSHU 上海大学校园网有线连接客户端.
 
-Designed By @[eliotxu](https://github.com/eliotxu)
+Designed By @[amluckydave](https://github.com/amluckydave)
 <br />
 
 ## :rocket: Progressing
